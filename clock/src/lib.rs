@@ -17,10 +17,6 @@ impl Clock {
             clock_hours = 24 + hours;
         } else if hours < -23 {
             clock_hours = 24 + (hours % 24);
-            println!(
-                "Inside logic. clock_hours: {}, hours: {}",
-                clock_hours, hours
-            );
         } else {
             clock_hours = hours;
         }
@@ -30,11 +26,6 @@ impl Clock {
         while total_minutes < 0 {
             total_minutes = total_minutes_per_day + total_minutes;
         }
-
-        println!(
-            "Input hours: {}, input minutes: {}, total_minutes: {}, clock_hours: {}",
-            hours, minutes, total_minutes, clock_hours
-        );
 
         if total_minutes / 60 > 23 {
             clock_hours = (total_minutes / 60) % 24
