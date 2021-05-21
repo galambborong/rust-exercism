@@ -8,8 +8,10 @@ pub struct Clock {
 
 impl Clock {
     pub fn new(hours: i32, minutes: i32) -> Self {
-        let total_minutes: i32;
+        let total_minutes_per_day = 24 * 60;
+        let mut total_minutes: i32;
         let mut clock_hours: i32;
+        let mut clock_minutes: i32;
 
         if hours < 0 && hours > -24 {
             clock_hours = 24 + hours;
@@ -25,9 +27,13 @@ impl Clock {
 
         total_minutes = (clock_hours * 60) + minutes;
 
+        while total_minutes < 0 {
+            total_minutes = total_minutes_per_day + total_minutes;
+        }
+
         println!(
-            "total_minutes: {}, clock_hours: {}",
-            total_minutes, clock_hours
+            "Input hours: {}, input minutes: {}, total_minutes: {}, clock_hours: {}",
+            hours, minutes, total_minutes, clock_hours
         );
 
         if total_minutes / 60 > 23 {
