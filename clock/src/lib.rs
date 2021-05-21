@@ -8,24 +8,18 @@ pub struct Clock {
 
 impl Clock {
     pub fn new(hours: i32, minutes: i32) -> Self {
-        // let total_minutes: i32 = (hours * 60) + minutes;
+        let total_minutes: i32 = (hours * 60) + minutes;
         let mut clock_hours = hours;
-        let mut clock_minutes = minutes;
-        let mut mins_into_hours = minutes;
 
-        if hours > 23 {
-            clock_hours = hours % 24;
-        }
-
-        if minutes > 59 {
-            mins_into_hours = minutes / 60;
-            clock_hours += mins_into_hours;
-            clock_minutes -= 60;
+        if total_minutes / 60 > 23 {
+            clock_hours = (total_minutes / 60) % 24
+        } else {
+            clock_hours = total_minutes / 60
         }
 
         Clock {
             hours: clock_hours,
-            minutes: clock_minutes,
+            minutes: total_minutes % 60,
         }
     }
 
