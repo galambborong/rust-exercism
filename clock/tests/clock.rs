@@ -71,31 +71,31 @@ fn test_hours_and_minutes_roll_over_to_exactly_midnight() {
 }
 
 #[test]
-#[ignore]
+// #[ignore]
 fn test_negative_hour() {
     assert_eq!(Clock::new(-1, 15).to_string(), "23:15");
 }
 
 #[test]
-#[ignore]
+// #[ignore]
 fn test_negative_hour_roll_over() {
     assert_eq!(Clock::new(-25, 00).to_string(), "23:00");
 }
 
 #[test]
-#[ignore]
+// #[ignore]
 fn test_negative_hour_roll_over_continuously() {
     assert_eq!(Clock::new(-91, 00).to_string(), "05:00");
 }
 
 #[test]
-#[ignore]
+// #[ignore]
 fn test_negative_minutes() {
     assert_eq!(Clock::new(1, -40).to_string(), "00:20");
 }
 
 #[test]
-#[ignore]
+// #[ignore]
 fn test_negative_minutes_roll_over() {
     assert_eq!(Clock::new(1, -160).to_string(), "22:20");
 }
