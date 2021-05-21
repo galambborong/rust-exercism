@@ -14,7 +14,7 @@ impl Clock {
         let mut total_minutes = (hours_in_24_hr * 60) + minutes;
 
         while total_minutes < 0 {
-            total_minutes = total_minutes_per_day + total_minutes;
+            total_minutes += total_minutes_per_day;
         }
 
         let clock_hours = match total_minutes / 60 {
