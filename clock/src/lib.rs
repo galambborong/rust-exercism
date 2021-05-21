@@ -9,29 +9,18 @@ pub struct Clock {
 impl Clock {
     pub fn new(hours: i32, minutes: i32) -> Self {
         let total_minutes_per_day = 24 * 60;
-        let mut total_minutes: i32;
-        let mut clock_hours: i32;
-        let mut clock_minutes: i32;
 
-        if hours < 0 && hours > -24 {
-            clock_hours = 24 + hours;
-        } else if hours < -23 {
-            clock_hours = 24 + (hours % 24);
-        } else {
-            clock_hours = hours;
-        }
-
-        total_minutes = (clock_hours * 60) + minutes;
+        let hours_in_24_hr = 24 + (hours % 24);
+        let mut total_minutes = (hours_in_24_hr * 60) + minutes;
 
         while total_minutes < 0 {
             total_minutes = total_minutes_per_day + total_minutes;
         }
 
-        if total_minutes / 60 > 23 {
-            clock_hours = (total_minutes / 60) % 24
-        } else {
-            clock_hours = total_minutes / 60
-        }
+        let clock_hours = match total_minutes / 60 {
+            24..=i32::MAX => total_minutes / 60 % 24,
+            _ => total_minutes / 60,
+        };
 
         Clock {
             hours: clock_hours,
