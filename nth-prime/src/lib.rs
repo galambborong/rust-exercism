@@ -1,6 +1,6 @@
 pub fn nth(n: u32) -> u32 {
-    let mut primes = Vec::new();
-    let mut i = 2;
+    let mut primes: Vec<u32> = Vec::new();
+    let mut i: u32 = 2;
     while primes.len() < n as usize + 1 {
         if is_prime(i) {
             primes.push(i)
