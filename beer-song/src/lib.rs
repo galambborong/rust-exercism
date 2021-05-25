@@ -8,5 +8,11 @@ pub fn verse(n: u32) -> String {
 }
 
 pub fn sing(start: u32, end: u32) -> String {
-    unimplemented!("sing verses {} to {}, inclusive", start, end)
+    let mut song: String = String::from("");
+
+    for i in end..(start + 1) {
+        song = format!("{}\n{}", verse(i), song);
+    }
+
+    format!("{}\n", song.trim())
 }
