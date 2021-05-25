@@ -4,4 +4,3 @@ name = "beer-song"
 version = "0.0.0"
 
 [dependencies]
-fstrings = "0.2.3"
