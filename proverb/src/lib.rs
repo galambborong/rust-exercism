@@ -1,5 +1,5 @@
 pub fn build_proverb(list: &[&str]) -> String {
-    let mut proverb: String = String::from("");
+    let mut proverb: String = String::new();
     let mut pointer: usize = 0;
 
     for i in list {
