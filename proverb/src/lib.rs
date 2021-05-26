@@ -1,6 +1,7 @@
 pub fn build_proverb(list: &[&str]) -> String {
     let mut proverb: String = String::from("");
-    let mut pointer = 0;
+    let mut pointer: usize = 0;
+
     for i in list {
         if list.len() > 1 && i != &list[list.len() - 1] {
             proverb = format!(
@@ -14,5 +15,6 @@ pub fn build_proverb(list: &[&str]) -> String {
             proverb = format!("{0}\nAnd all for the want of a {1}.\n", proverb, &list[0]);
         }
     }
-    format!("{}", proverb.trim())
+
+    proverb.trim().to_string()
 }
