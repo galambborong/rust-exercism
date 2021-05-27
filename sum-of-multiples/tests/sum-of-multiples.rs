@@ -6,13 +6,13 @@ fn no_multiples_within_limit() {
 }
 
 #[test]
-#[ignore]
+// #[ignore]
 fn one_factor_has_multiples_within_limit() {
     assert_eq!(3, sum_of_multiples(4, &[3, 5]))
 }
 
 #[test]
-#[ignore]
+// #[ignore]
 fn more_than_one_multiple_within_limit() {
     assert_eq!(9, sum_of_multiples(7, &[3]))
 }
