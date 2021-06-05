@@ -45,7 +45,7 @@ fn test_32() {
 }
 
 #[test]
-#[ignore]
+// #[ignore]
 /// 64
 fn test_64() {
     process_square_case(64, 9_223_372_036_854_775_808);
