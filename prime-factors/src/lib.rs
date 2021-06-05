@@ -1,5 +1,5 @@
 pub fn factors(n: u64) -> Vec<u64> {
-    let mut reducer = n;
+    let mut reducer: u64 = n;
     let mut current_divisor: u64 = 2;
     let mut prime_factors: Vec<u64> = Vec::<u64>::new();
 
