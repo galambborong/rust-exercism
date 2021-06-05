@@ -15,5 +15,5 @@ fn square_method(x: u32) -> u64 {
 }
 
 pub fn total() -> u64 {
-    (1..=64).map(|x| square_method(x)).sum()
+    (1..=64).map(square_method).sum()
 }
