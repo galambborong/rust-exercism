@@ -9,21 +9,21 @@ fn test_1() {
 }
 
 #[test]
-#[ignore]
+// #[ignore]
 /// 2
 fn test_2() {
     process_square_case(2, 2);
 }
 
 #[test]
-#[ignore]
+// #[ignore]
 /// 3
 fn test_3() {
     process_square_case(3, 4);
 }
 
 #[test]
-#[ignore]
+// #[ignore]
 /// 4
 fn test_4() {
     process_square_case(4, 8);
@@ -31,14 +31,14 @@ fn test_4() {
 
 //NEW
 #[test]
-#[ignore]
+// #[ignore]
 /// 16
 fn test_16() {
     process_square_case(16, 32_768);
 }
 
 #[test]
-#[ignore]
+// #[ignore]
 /// 32
 fn test_32() {
     process_square_case(32, 2_147_483_648);
