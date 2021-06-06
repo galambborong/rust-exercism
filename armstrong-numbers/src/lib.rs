@@ -5,7 +5,7 @@ pub fn is_armstrong_number(num: u32) -> bool {
         .map(|x| x.to_digit(10).unwrap())
         .collect();
 
-    let n = digits.len() as u32;
+    let n: u32 = digits.len() as u32;
 
     digits.iter().map(|x| u32::pow(*x, n)).sum::<u32>() == num
 }
