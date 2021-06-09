@@ -1,14 +1,14 @@
+use regex::Regex;
+
 pub fn reply(message: &str) -> &str {
-    let response = match (
-        message.ends_with("."),
-        message.ends_with("?"),
-        message.ends_with(" "),
-        message.ends_with("!"),
+    let statement = Regex::new(r".$").unwrap();
+    let end_with_whitespaces = Regex::new(r"\s+$").unwrap();
+    match (
+        statement.is_match(message),
+        end_with_whitespaces.is_match(message),
     ) {
-        (true, _, _, _) => "Whatever.",
-        (_, _, true, _) => "Sure.",
-        (_, _, _, true) => "Whoa, chill out!",
-        (_, _, _, _) => "",
-    };
-    response
+        (true, false) => "Whatever.",
+        (false, true) => "Sure.",
+        _ => "FAKE",
+    }
 }

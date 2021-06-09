@@ -23,7 +23,7 @@ fn test_shouting_numbers() {
 }
 
 #[test]
-#[ignore]
+// #[ignore]
 /// other whitespace
 fn test_other_whitespace() {
     process_response_case("\r\r 	", "Fine. Be that way!");
