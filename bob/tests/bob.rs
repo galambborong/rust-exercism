@@ -9,28 +9,28 @@ fn test_stating_something() {
 }
 
 #[test]
-// #[ignore]
+#[ignore]
 /// ending with whitespace
 fn test_ending_with_whitespace() {
     process_response_case("Okay if like my  spacebar  quite a bit?   ", "Sure.");
 }
 
 #[test]
-// #[ignore]
+#[ignore]
 /// shouting numbers
 fn test_shouting_numbers() {
     process_response_case("1, 2, 3 GO!", "Whoa, chill out!");
 }
 
 #[test]
-// #[ignore]
+#[ignore]
 /// other whitespace
 fn test_other_whitespace() {
     process_response_case("\r\r 	", "Fine. Be that way!");
 }
 
 #[test]
-// #[ignore]
+#[ignore]
 /// shouting with special characters
 fn test_shouting_with_special_characters() {
     process_response_case(
