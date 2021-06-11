@@ -23,14 +23,14 @@ fn test_shouting_numbers() {
 }
 
 #[test]
-#[ignore]
+// #[ignore]
 /// other whitespace
 fn test_other_whitespace() {
     process_response_case("\r\r 	", "Fine. Be that way!");
 }
 
 #[test]
-#[ignore]
+// #[ignore]
 /// shouting with special characters
 fn test_shouting_with_special_characters() {
     process_response_case(
@@ -40,7 +40,7 @@ fn test_shouting_with_special_characters() {
 }
 
 #[test]
-#[ignore]
+// #[ignore]
 /// talking forcefully
 fn test_talking_forcefully() {
     process_response_case("Hi there!", "Whatever.");
