@@ -6,6 +6,7 @@ pub fn reply(message: &str) -> &str {
     let statement = Regex::new(r"\.$").unwrap();
     let question = Regex::new(r".*\?$").unwrap();
     let shouting = Regex::new(r"[A-Z]+.*$").unwrap();
+    let shouting_question = Regex::new(r"[A-Z]+\?$").unwrap();
 
     if statement.is_match(message) {
         return "Whatever.";
@@ -20,6 +21,10 @@ pub fn reply(message: &str) -> &str {
     }
     if message.trim() == "" {
         return "Fine. Be that way!";
+    }
+
+    if shouting_question.is_match(message) {
+        return "Calm down, I know what I'm doing!";
     }
 
     "Whatever."
