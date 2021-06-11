@@ -9,14 +9,14 @@ fn test_stating_something() {
 }
 
 #[test]
-#[ignore]
+// #[ignore]
 /// ending with whitespace
 fn test_ending_with_whitespace() {
     process_response_case("Okay if like my  spacebar  quite a bit?   ", "Sure.");
 }
 
 #[test]
-#[ignore]
+// #[ignore]
 /// shouting numbers
 fn test_shouting_numbers() {
     process_response_case("1, 2, 3 GO!", "Whoa, chill out!");
