@@ -1,42 +1,42 @@
 use regex::Regex;
 
 pub fn reply(message: &str) -> &str {
-    println!("::{}::", message.trim());
+    // println!("::{}::", message.trim());
 
-    let statement = Regex::new(r"\.$").unwrap();
-    let question = Regex::new(r".*\?$").unwrap();
-    let shouting = Regex::new(r"[A-Z]+.*$").unwrap();
-    let shouting_question = Regex::new(r"[A-Z]+\?$").unwrap();
-
-    if statement.is_match(message) {
-        return "Whatever.";
+    // let statement = Regex::new(r"\.$").unwrap();
+    // let question = Regex::new(r".*\?$").unwrap();
+    let numbers = Regex::new(r"[^a-zA-Z]").unwrap();
+    // let shouting = Regex::new(r"[A-Z]+").unwrap();
+    // let shouting_question = Regex::new(r".*[A-Z]+\?$").unwrap();
+    if message.trim() == "" {
+        return "Fine. Be that way!";
     };
 
-    if question.is_match(message.trim()) {
+    // if message.trim().ends_with(".") {
+    //     return "Whatever.";
+    // };
+
+    if message.trim().ends_with("?") {
         return "Sure.";
     };
 
-    if shouting.is_match(message) {
-        return "Whoa, chill out!";
-    }
-    if message.trim() == "" {
-        return "Fine. Be that way!";
-    }
+    // if shouting.is_match(message) {
+    if message.trim().to_uppercase() == message.trim() {
+        println!(
+            "HELLO FROM IN HERE\n{}\n{}",
+            message,
+            message.to_uppercase()
+        );
+        if message.trim().ends_with("?") {
+            return "Calm down, I know what I'm doing!";
+        } else {
+            return "Whoa, chill out!";
+        };
+    };
 
-    if shouting_question.is_match(message) {
-        return "Calm down, I know what I'm doing!";
-    }
+    // if numbers.is_match(message) {
+    //     return "Whatever";
+    // }
 
     "Whatever."
-
-    // match (
-    //     statement.is_match(message),
-    //     end_with_whitespaces.is_match(message.trim()),
-    //     shouting.is_match(message),
-    // ) {
-    //     (true, false, false) => "Whatever.",
-    //     (false, true, false) => "Sure.",
-    //     (false, false, true) => "Whoa, chill out!",
-    //     _ => "Not here",
-    // }
 }
