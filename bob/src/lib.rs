@@ -1,3 +1,4 @@
+/// Provide Bob's correct response to questions and statements
 pub fn reply(message: &str) -> &str {
     let trimmed_message = message.trim();
     let is_question = trimmed_message.ends_with("?");
