@@ -8,13 +8,18 @@ pub fn brackets_are_balanced(string: &str) -> bool {
 
     let collection: Vec<Vec<&str>> = vec![brackets, curlies, squares];
 
+    let openings: Vec<&str> = vec!["[", "(", "{"];
+    let closings: Vec<&str> = vec!["]", ")", "}"];
+
+    let pairs: Vec<Vec<&str>> = vec![openings, closings];
+
     // println!("{:?}, {}", chars, chars.len());
     // println!("{:?}, {}", collection[0][0], collection.len());
 
     match chars.len() {
         x if x == 0 => return true,
         x if x % 2 != 0 => return false,
-        _ => return check_pairs(chars, collection),
+        _ => return check_pairs(chars, pairs),
     }
 }
 
@@ -48,6 +53,10 @@ fn check_pairs(chars: Vec<&str>, collection: Vec<Vec<&str>>) -> bool {
             for k in j {
                 // println!("{}", k);
                 println!("i = {:?},  k = {:?}, i == k: {:?}", i, k, &i == k);
+
+                if &i == k && k != &j[0] {
+                    return false;
+                }
             }
         }
     }
