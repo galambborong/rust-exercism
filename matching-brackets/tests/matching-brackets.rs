@@ -6,37 +6,37 @@ fn paired_square_brackets() {
 }
 
 #[test]
-#[ignore]
+// #[ignore]
 fn empty_string() {
     assert!(brackets_are_balanced(""));
 }
 
 #[test]
-#[ignore]
+// #[ignore]
 fn unpaired_brackets() {
     assert!(!brackets_are_balanced("[["));
 }
 
 #[test]
-#[ignore]
+// #[ignore]
 fn wrong_ordered_brackets() {
     assert!(!brackets_are_balanced("}{"));
 }
 
 #[test]
-#[ignore]
+// #[ignore]
 fn wrong_closing_bracket() {
     assert!(!brackets_are_balanced("{]"));
 }
 
 #[test]
-#[ignore]
+// #[ignore]
 fn paired_with_whitespace() {
     assert!(brackets_are_balanced("{ }"));
 }
 
 #[test]
-#[ignore]
+// #[ignore]
 fn partially_paired_brackets() {
     assert!(!brackets_are_balanced("{[])"));
 }
