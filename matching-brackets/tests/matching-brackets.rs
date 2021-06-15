@@ -42,19 +42,19 @@ fn partially_paired_brackets() {
 }
 
 #[test]
-#[ignore]
+// #[ignore]
 fn simple_nested_brackets() {
     assert!(brackets_are_balanced("{[]}"));
 }
 
 #[test]
-#[ignore]
+// #[ignore]
 fn several_paired_brackets() {
     assert!(brackets_are_balanced("{}[]"));
 }
 
 #[test]
-#[ignore]
+// #[ignore]
 fn paired_and_nested_brackets() {
     assert!(brackets_are_balanced("([{}({}[])])"));
 }

@@ -1,26 +1,36 @@
-use regex::Regex;
-
-/// Check all brackets are correctly matched and balanced
+/// Check brackets are correctly matched and balanced
 pub fn brackets_are_balanced(string: &str) -> bool {
-    let square_pair = Regex::new(r".*\[.*\].*").unwrap();
-    let bracket_pair = Regex::new(r".*\(.*\).*").unwrap();
-    let curly_pair = Regex::new(r".*\{.*\}.*").unwrap();
+    let chars: Vec<&str> = string.split("").filter(|x| !x.trim().is_empty()).collect();
 
-    let string_contains_square_pair = square_pair.is_match(string);
-    let string_contains_bracket_pair = bracket_pair.is_match(string);
-    let string_contains_curly_pair = curly_pair.is_match(string);
-    let string_contains_no_pairs_but_is_balanced = string.is_empty();
+    println!("{:?}, {}", chars, chars.len());
 
-    matches!(
-        (
-            string_contains_square_pair,
-            string_contains_bracket_pair,
-            string_contains_curly_pair,
-            string_contains_no_pairs_but_is_balanced,
-        ),
-        (true, _, _, false)
-            | (_, true, _, false)
-            | (_, _, true, false)
-            | (false, false, false, true)
-    )
+    match chars.len() {
+        x if x == 0 => return true,
+        x if x % 2 != 0 => return false,
+        _ => return check_pairs(chars),
+    }
+}
+
+fn check_pairs(chars: Vec<&str>) -> bool {
+    match chars[0] {
+        "[" => {
+            if chars[chars.len() - 1] == "]" {
+                return true;
+            } else if chars[1] == "]" {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        "{" => {
+            if chars[chars.len() - 1] == "}" {
+                return true;
+            } else if chars[1] == "}" {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        _ => false,
+    }
 }
