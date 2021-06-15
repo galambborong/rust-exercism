@@ -2,11 +2,11 @@
 pub fn brackets_are_balanced(string: &str) -> bool {
     let chars: Vec<&str> = string.split("").filter(|x| !x.trim().is_empty()).collect();
 
-    let brackets: Vec<&str> = vec!["[", "]"];
-    let curlies: Vec<&str> = vec!["{", "}"];
-    let squares: Vec<&str> = vec!["[", "]"];
+    // let brackets: Vec<&str> = vec!["[", "]"];
+    // let curlies: Vec<&str> = vec!["{", "}"];
+    // let squares: Vec<&str> = vec!["[", "]"];
 
-    let collection: Vec<Vec<&str>> = vec![brackets, curlies, squares];
+    // let collection: Vec<Vec<&str>> = vec![brackets, curlies, squares];
 
     let openings: Vec<&str> = vec!["[", "(", "{"];
     let closings: Vec<&str> = vec!["]", ")", "}"];
@@ -24,19 +24,16 @@ pub fn brackets_are_balanced(string: &str) -> bool {
 }
 
 fn check_pairs(chars: Vec<&str>, collection: Vec<Vec<&str>>) -> bool {
-    for i in chars {
-        // println!("{:?}", i);
-        for j in &collection {
-            // println!("{:?}", j);
-            for k in j {
-                // println!("{}", k);
-                println!("i = {:?},  k = {:?}, i == k: {:?}", i, k, &i == k);
-
-                if &i == k && k != &j[0] {
-                    return false;
-                }
+    let mut truthy: bool = false;
+    for (i, el) in chars.iter().enumerate() {
+        for j in &collection[i] {
+            // println!("el = {:?}, el == j: {:?}", i, el == j);
+            println!("el = {:?}, i = {:?}", el, i);
+            if el == j {
+                // if &collection[1][i];
+                truthy;
             }
         }
     }
-    false
+    truthy
 }
