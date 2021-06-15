@@ -24,28 +24,6 @@ pub fn brackets_are_balanced(string: &str) -> bool {
 }
 
 fn check_pairs(chars: Vec<&str>, collection: Vec<Vec<&str>>) -> bool {
-    // match chars[0] {
-    //     "[" => {
-    //         if chars[chars.len() - 1] == "]" {
-    //             return true;
-    //         } else if chars[1] == "]" {
-    //             return true;
-    //         } else {
-    //             return false;
-    //         }
-    //     }
-    //     "{" => {
-    //         if chars[chars.len() - 1] == "}" {
-    //             return true;
-    //         } else if chars[1] == "}" {
-    //             return true;
-    //         } else {
-    //             return false;
-    //         }
-    //     }
-    //     _ => false,
-    // }
-
     for i in chars {
         // println!("{:?}", i);
         for j in &collection {
@@ -61,6 +39,4 @@ fn check_pairs(chars: Vec<&str>, collection: Vec<Vec<&str>>) -> bool {
         }
     }
     false
-
-    // chars.iter().map(|char| collection[0].map())
 }
