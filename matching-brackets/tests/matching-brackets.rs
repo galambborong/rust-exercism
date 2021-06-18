@@ -49,7 +49,7 @@ fn simple_nested_brackets() {
 }
 
 #[test]
-// #[ignore]
+#[ignore]
 fn several_paired_brackets() {
     assert!(brackets_are_balanced("{}[]"));
 }
@@ -61,13 +61,13 @@ fn paired_and_nested_brackets() {
 }
 
 #[test]
-#[ignore]
+// #[ignore]
 fn unopened_closing_brackets() {
     assert!(!brackets_are_balanced("{[)][]}"));
 }
 
 #[test]
-#[ignore]
+// #[ignore]
 fn unpaired_and_nested_brackets() {
     assert!(!brackets_are_balanced("([{])"));
 }
@@ -79,19 +79,19 @@ fn paired_and_wrong_nested_brackets() {
 }
 
 #[test]
-#[ignore]
+// #[ignore]
 fn paired_and_incomplete_brackets() {
     assert!(!brackets_are_balanced("{}["));
 }
 
 #[test]
-#[ignore]
+// #[ignore]
 fn too_many_closing_brackets() {
     assert!(!brackets_are_balanced("[]]"));
 }
 
 #[test]
-#[ignore]
+// #[ignore]
 fn early_incomplete_brackets() {
     assert!(!brackets_are_balanced(")()"));
 }
