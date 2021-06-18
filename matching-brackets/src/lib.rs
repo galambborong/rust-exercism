@@ -2,19 +2,10 @@
 pub fn brackets_are_balanced(string: &str) -> bool {
     let chars: Vec<&str> = string.split("").filter(|x| !x.trim().is_empty()).collect();
 
-    // let brackets: Vec<&str> = vec!["[", "]"];
-    // let curlies: Vec<&str> = vec!["{", "}"];
-    // let squares: Vec<&str> = vec!["[", "]"];
-
-    // let collection: Vec<Vec<&str>> = vec![brackets, curlies, squares];
-
     let openings: Vec<&str> = vec!["[", "(", "{"];
     let closings: Vec<&str> = vec!["]", ")", "}"];
 
     let pairs: Vec<Vec<&str>> = vec![openings, closings];
-
-    // println!("{:?}, {}", chars, chars.len());
-    // println!("{:?}, {}", collection[0][0], collection.len());
 
     match chars.len() {
         x if x == 0 => return true,
@@ -26,27 +17,40 @@ pub fn brackets_are_balanced(string: &str) -> bool {
 fn check_pairs(brackets: Vec<&str>, collection: Vec<Vec<&str>>) -> bool {
     let mut truthy: bool = false;
     let mut bracket_locations: Vec<(usize, usize)> = Vec::new();
-    // let mut bracket_location = (0, 0);
     for (brackets_idx, bracket) in brackets.iter().enumerate() {
-        println!("{:?} - line 31", bracket);
         for (openings_idx, opening_bracket) in collection[0].iter().enumerate() {
-            // println!("{:?} <<<", j);
             if bracket == opening_bracket {
-                println!("Hello from iteration {}", openings_idx);
                 bracket_locations.push((brackets_idx, openings_idx));
             }
         }
-
-        // if brackets_idx == bracket_location.0 + 1 && bracket == &collection[1][bracket_location.1] {
-        //     println!("Pair");
-        // } else if brackets_idx == bracket_location.0 + 1
-        //     && bracket != &collection[1][!bracket_location.1]
-        // {
-        //     println!("Not a pair!")
-        // }
     }
-    // truthy
+
     println!("{:?}", bracket_locations);
 
-    true
+    // if bracket_locations[1].0 != bracket_locations[0].0 + 1 {
+    //     println!(
+    //         "Expected {}. Got {}",
+    //         collection[1][bracket_locations[0].0],
+    //         brackets[bracket_locations[0].0 + 1]
+    //     );
+    //     if collection[1][bracket_locations[0].0] != brackets[bracket_locations[0].0 + 1] {
+    //         truthy = false;
+    //         return truthy;
+    //     }
+    // }
+
+    let mut idx = bracket_locations[bracket_locations.len() - 1].0 + 1;
+
+    for n in idx..brackets.len() {
+        println!("{} <-", brackets[n]);
+        if brackets[n] == collection[1][bracket_locations[idx - 1].1] {
+            println!("Inside if on line 33. idx = {}", idx);
+            truthy = true;
+            idx -= 1;
+        } else {
+            truthy = false;
+        }
+    }
+
+    truthy
 }
