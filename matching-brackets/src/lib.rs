@@ -23,17 +23,30 @@ pub fn brackets_are_balanced(string: &str) -> bool {
     }
 }
 
-fn check_pairs(chars: Vec<&str>, collection: Vec<Vec<&str>>) -> bool {
+fn check_pairs(brackets: Vec<&str>, collection: Vec<Vec<&str>>) -> bool {
     let mut truthy: bool = false;
-    for (i, el) in chars.iter().enumerate() {
-        for j in &collection[i] {
-            // println!("el = {:?}, el == j: {:?}", i, el == j);
-            println!("el = {:?}, i = {:?}", el, i);
-            if el == j {
-                // if &collection[1][i];
-                truthy;
+    let mut bracket_locations: Vec<(usize, usize)> = Vec::new();
+    // let mut bracket_location = (0, 0);
+    for (brackets_idx, bracket) in brackets.iter().enumerate() {
+        println!("{:?} - line 31", bracket);
+        for (openings_idx, opening_bracket) in collection[0].iter().enumerate() {
+            // println!("{:?} <<<", j);
+            if bracket == opening_bracket {
+                println!("Hello from iteration {}", openings_idx);
+                bracket_locations.push((brackets_idx, openings_idx));
             }
         }
+
+        // if brackets_idx == bracket_location.0 + 1 && bracket == &collection[1][bracket_location.1] {
+        //     println!("Pair");
+        // } else if brackets_idx == bracket_location.0 + 1
+        //     && bracket != &collection[1][!bracket_location.1]
+        // {
+        //     println!("Not a pair!")
+        // }
     }
-    truthy
+    // truthy
+    println!("{:?}", bracket_locations);
+
+    true
 }

@@ -1,36 +1,37 @@
 use matching_brackets::brackets_are_balanced;
 
 #[test]
+#[ignore]
 fn paired_square_brackets() {
     assert!(brackets_are_balanced("[]"));
 }
 
 #[test]
-// #[ignore]
+#[ignore]
 fn empty_string() {
     assert!(brackets_are_balanced(""));
 }
 
 #[test]
-// #[ignore]
+#[ignore]
 fn unpaired_brackets() {
     assert!(!brackets_are_balanced("[["));
 }
 
 #[test]
-// #[ignore]
+#[ignore]
 fn wrong_ordered_brackets() {
     assert!(!brackets_are_balanced("}{"));
 }
 
 #[test]
-// #[ignore]
+#[ignore]
 fn wrong_closing_bracket() {
     assert!(!brackets_are_balanced("{]"));
 }
 
 #[test]
-// #[ignore]
+#[ignore]
 fn paired_with_whitespace() {
     assert!(brackets_are_balanced("{ }"));
 }
@@ -42,19 +43,19 @@ fn partially_paired_brackets() {
 }
 
 #[test]
-// #[ignore]
+#[ignore]
 fn simple_nested_brackets() {
     assert!(brackets_are_balanced("{[]}"));
 }
 
 #[test]
-// #[ignore]
+#[ignore]
 fn several_paired_brackets() {
     assert!(brackets_are_balanced("{}[]"));
 }
 
 #[test]
-// #[ignore]
+#[ignore]
 fn paired_and_nested_brackets() {
     assert!(brackets_are_balanced("([{}({}[])])"));
 }
