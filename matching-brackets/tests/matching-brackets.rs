@@ -49,7 +49,7 @@ fn simple_nested_brackets() {
 }
 
 #[test]
-#[ignore]
+// #[ignore]
 fn several_paired_brackets() {
     assert!(brackets_are_balanced("{}[]"));
 }
