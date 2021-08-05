@@ -17,20 +17,17 @@ fn check_pairs(brackets: Vec<&str>) -> bool {
     remaining_brackets.is_empty()
 }
 
-fn remove_matches(brackets: Vec<&str>) -> Vec<&str> {
+fn remove_matches(mut brackets: Vec<&str>) -> Vec<&str> {
     let matching_brackets: Vec<&str> = vec!["{}", "()", "[]"];
-    let mut new_set: Vec<&str> = vec![];
-    // for (idx, bracket) in brackets.iter().enumerate() {
     for (idx, bracket) in brackets.iter().enumerate().step_by(2) {
         let temporary_pair = [bracket, brackets[idx + 1]].concat();
         if matching_brackets
             .iter()
             .any(|pair| pair.to_string() != temporary_pair)
         {
-            new_set.push(bracket);
-            new_set.push(brackets[idx + 1]);
+            brackets.remove(idx);
         }
     }
-    println!("4 - new_set: {:?}, brackets: {:?}", new_set, brackets);
-    new_set
+
+    brackets
 }
